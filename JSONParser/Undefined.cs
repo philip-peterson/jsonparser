@@ -1,7 +1,7 @@
 using System;
 
 public partial class JSONParser {
-    public UndefinedType Undefined {
+    public static UndefinedType Undefined {
         get {
             return UndefinedType.Instance;
         }
@@ -35,7 +35,9 @@ public partial class JSONParser {
                 return Instance;
             }
             set {
-                throw new JSONTypeError(String.Format("Cannot set property '{0}' of undefined", key));
+                throw new TypeError(
+                    System.String.Format("Cannot set property '{0}' of undefined", key)
+                );
             }
         }
     }
