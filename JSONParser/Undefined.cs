@@ -1,10 +1,16 @@
 using System;
 
 public partial class JSONParser {
-    public class JSONUndefined : IJSONValue {
-        private static JSONUndefined instance;
+    public UndefinedType Undefined {
+        get {
+            return UndefinedType.Instance;
+        }
+    }
 
-        private JSONUndefined() {}
+    public class UndefinedType : IValue {
+        private static UndefinedType instance;
+
+        private UndefinedType() {}
 
         public object Value {
             get {
@@ -12,19 +18,19 @@ public partial class JSONParser {
             }
         }
 
-        public static JSONUndefined Instance
+        public static UndefinedType Instance
         {
             get 
             {
                 if (instance == null)
                 {
-                    instance = new JSONUndefined();
+                    instance = new UndefinedType();
                 }
                 return instance;
             }
         }
 
-        public IJSONValue this[string key] {
+        public IValue this[string key] {
             get {
                 return Instance;
             }

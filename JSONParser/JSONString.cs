@@ -1,5 +1,5 @@
 public partial class JSONParser {
-    public class JSONString : IJSONValue { 
+    public class JSONString : IValue { 
         private string val;
 
         public object Value {
@@ -19,9 +19,9 @@ public partial class JSONParser {
 
         //public 
 
-        public IJSONValue this[string key] {
+        public IValue this[string key] {
             get {
-                return JSONUndefined.Instance;
+                return Undefined.Instance;
             }
             set { }
         }

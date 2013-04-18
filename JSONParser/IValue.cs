@@ -1,6 +1,8 @@
+using System;
+
 public partial class JSONParser {
-    public interface IJSONValue {
-        IJSONValue this[string key] {
+    public interface IValue : IEquatable<JSONParser.Undefined> {
+        IValue this[string key] {
             get;
             set;
         }
