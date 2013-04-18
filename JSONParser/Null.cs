@@ -1,14 +1,15 @@
 public partial class JSONParser {
     public static bool IsNull(object x) {
-        if (x is NullType) {
-            return true;
-        }
 
-        // I do it this way for a reason:
+        // I do it this seemingly convoluted way for a reason:
         // http://stackoverflow.com/questions/6417902/checking-if-object-is-null-in-c-sharp
         if (x != null) {
+            if (x is NullType) { // For some reason this line is causing a lot of trouble...
+                return true;
+            }
             return false;
         }
+
         return true;
     }
 
@@ -17,6 +18,8 @@ public partial class JSONParser {
             get {
                 return null;
             }
+        }
+        public NullType() {
         }
         public IValue this[string key] {
             get {
