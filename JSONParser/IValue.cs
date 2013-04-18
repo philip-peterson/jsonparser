@@ -12,6 +12,5 @@ public partial class JSONParser {
         object Value { 
             get;
         }
-        bool Equals(object t);
     }
 }
