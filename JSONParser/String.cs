@@ -17,8 +17,6 @@ public partial class JSONParser {
             this.val = val;
         }
 
-        //public 
-
         public IValue this[string key] {
             get {
                 return Undefined;
