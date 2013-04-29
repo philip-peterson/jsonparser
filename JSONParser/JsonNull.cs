@@ -18,6 +18,6 @@ public class JsonNull: IJsonValue {
     }
     
     public bool Equals (IJsonValue other) { // let's not do type coercion. confuses people.
-        return false; // TODO
+        return JsonUtil.IsNull(other);
     }
 }
