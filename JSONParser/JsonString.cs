@@ -23,7 +23,11 @@ public class JsonString : IJsonValue {
         set { }
     }
 
-    public bool Equals(object other) {
+    public String ToString() {
+        return Value;
+    }
+
+    public bool Equals(IJsonValue other) {
         // TODO this part needs work
         if (other is JsonString) {
             return ((JsonString)other).Value.Equals(val);
@@ -34,10 +38,6 @@ public class JsonString : IJsonValue {
         else {
             return false;
         }
-    }
-
-    public bool Equals(IJsonValue other) {
-        return false; 
     }
 
 }
