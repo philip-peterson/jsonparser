@@ -12,7 +12,11 @@ public class JsonUndefined : IJsonValue {
     }
     
     public bool Equals(IJsonValue other) {
-        return false; // TODO
+        return (other is JsonUndefined);
+    }
+
+    public string ToString() {
+        return "undefined";
     }
 
     public static JsonUndefined Instance

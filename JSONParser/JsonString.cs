@@ -16,6 +16,14 @@ public class JsonString : IJsonValue {
         this.val = val;
     }
 
+    public JsonString(JsonUndefined u) {
+        this.val = u.ToString();
+    }
+
+    public JsonString(JsonNumber n) {
+        this.val = n.ToString();
+    }
+
     public IJsonValue this[string key] {
         get {
             return JsonUndefined.Instance;
@@ -24,20 +32,18 @@ public class JsonString : IJsonValue {
     }
 
     public string ToString() {
-        return Value;
+        return val;
     }
 
     public bool Equals(IJsonValue other) {
-        // TODO this part needs work
         if (other is JsonString) {
             return ((JsonString)other).Value.Equals(val);
         }
-        else if (other is string) {
-            return ((string)other).Equals(val);
-        }
-        else {
-            return false;
-        }
+        return false;
+    }
+
+    public bool Equals(string other) {
+        return other.Equals(val);
     }
 
 }

@@ -16,6 +16,10 @@ public class JsonNull: IJsonValue {
             throw new JsonTypeError(System.String.Format("Cannot set property '{0}' of null", key));
         }
     }
+
+    public string ToString() {
+        return "null";
+    }
     
     public bool Equals (IJsonValue other) { // let's not do type coercion. confuses people.
         return JsonUtil.IsNull(other);
