@@ -23,7 +23,7 @@ public class JsonString : IJsonValue {
         set { }
     }
 
-    public String ToString() {
+    public string ToString() {
         return Value;
     }
 
