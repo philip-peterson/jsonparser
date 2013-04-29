@@ -11,8 +11,8 @@ public class JsonUndefined : IJsonValue {
         }
     }
     
-    public bool Equals(JsonUndefined other) {
-        return true;
+    public bool Equals(IJsonValue other) {
+        return false; // TODO
     }
 
     public static JsonUndefined Instance

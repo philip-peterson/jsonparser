@@ -1,17 +1,4 @@
-public partial class JsonUtil {
-    public static bool IsNull(object x) {
-        bool isOfType = (x is JsonNull);
-        // I do it this seemingly convoluted way for a reason:
-        // http://stackoverflow.com/questions/6417902/checking-if-object-is-null-in-c-sharp
-        if (x != null) {
-            if (isOfType) {
-                return true;
-            }
-            return false;
-        }
-        return true;
-    }
-}
+using System;
 
 public class JsonNull: IJsonValue {
     public JsonNull() {
@@ -30,7 +17,7 @@ public class JsonNull: IJsonValue {
         }
     }
     
-    public bool Equals (JsonUndefined other) { // let's not do type coercion. confuses people.
-        return false;
+    public bool Equals (IJsonValue other) { // let's not do type coercion. confuses people.
+        return false; // TODO
     }
 }

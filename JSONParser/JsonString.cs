@@ -36,7 +36,7 @@ public class JsonString : IJsonValue {
         }
     }
 
-    public bool Equals(JsonUndefined other) {
+    public bool Equals(IJsonValue other) {
         return false; 
     }
 

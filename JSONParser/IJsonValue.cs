@@ -1,8 +1,7 @@
 using System;
 
 public interface IJsonValue 
-        : IEquatable<JsonUndefined>//,
-        //IEquatable<object>
+        : IEquatable<IJsonValue>
     {
     IJsonValue this[string key] {
         get;
