@@ -30,7 +30,7 @@ public class JsonObject : IJsonValue {
 			first = false;
 			sb.Append(JsonString.FormatStringJson(kvp.Key));
 			sb.Append(": ");
-			sb.Append(IJsonValue.ToJson());
+			sb.Append(kvp.Value.ToJson());
 		}
 		sb.Append("}");
 		return sb.ToString();
