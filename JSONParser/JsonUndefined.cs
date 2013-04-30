@@ -1,48 +1,48 @@
 using System;
 
 public class JsonUndefined : IJsonValue {
-    private static JsonUndefined instance;
+	private static JsonUndefined instance;
 
-    private JsonUndefined() {}
+	private JsonUndefined() {}
 
-    public object Value {
-        get {
-            return Instance;
-        }
-    }
-    
-    public bool Equals(IJsonValue other) {
-        return (other is JsonUndefined);
-    }
+	public object Value {
+		get {
+			return Instance;
+		}
+	}
+	
+	public bool Equals(IJsonValue other) {
+		return (other is JsonUndefined);
+	}
 
-    public override string ToString() {
-        return "";
-    }
+	public override string ToString() {
+		return "";
+	}
 
-    public string ToJson() {
-        return "undefined";
-    }
+	public string ToJson() {
+		return "undefined";
+	}
 
-    public static JsonUndefined Instance
-    {
-        get 
-        {
-            if (instance == null)
-            {
-                instance = new JsonUndefined();
-            }
-            return instance;
-        }
-    }
+	public static JsonUndefined Instance
+	{
+		get 
+		{
+			if (instance == null)
+			{
+				instance = new JsonUndefined();
+			}
+			return instance;
+		}
+	}
 
-    public IJsonValue this[string key] {
-        get {
-            return Instance;
-        }
-        set {
-            throw new JsonTypeError(
-                System.String.Format("Cannot set property '{0}' of undefined", key)
-            );
-        }
-    }
+	public IJsonValue this[string key] {
+		get {
+			return Instance;
+		}
+		set {
+			throw new JsonTypeError(
+				System.String.Format("Cannot set property '{0}' of undefined", key)
+			);
+		}
+	}
 }
