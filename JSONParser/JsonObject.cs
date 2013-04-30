@@ -22,8 +22,15 @@ public class JsonObject : IJsonValue {
 	public string ToJson() {
 		StringBuilder sb = new StringBuilder();
 		sb.Append("{");
+		bool first = true;
 		foreach (KeyValuePair<string, IJsonValue> kvp in dict) {
-			
+			if (!first) {
+				sb.Append(", ");
+			}
+			first = false;
+			sb.Append(JsonString.FormatStringJson(kvp.Key));
+			sb.Append(": ");
+			sb.Append(IJsonValue.ToJson());
 		}
 		sb.Append("}");
 		return sb.ToString();

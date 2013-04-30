@@ -1,7 +1,7 @@
 using System;
 
 public interface IJsonValue 
-		: IEquatable<IJsonValue>
+	             : IEquatable<IJsonValue>
 	{
 	IJsonValue this[string key] {
 		get;

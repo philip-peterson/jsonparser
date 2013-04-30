@@ -37,10 +37,10 @@ public class JsonString : IJsonValue {
 		return val;
 	}
 
-	public string ToJson() {
+	public static string FormatStringJson(string s) {
 		StringBuilder sb = new StringBuilder();
 		sb.Append('"');
-		foreach (char c in val) {
+		foreach (char c in s) {
 			if (c.Equals('\\')) {
 				sb.Append("\\\\");
 			}
@@ -65,6 +65,10 @@ public class JsonString : IJsonValue {
 		}
 		sb.Append('"');
 		return sb.ToString();
+	}
+
+	public string ToJson() {
+		return FormatStringJson(val);
 	}
 
 	public bool Equals(IJsonValue other) {
