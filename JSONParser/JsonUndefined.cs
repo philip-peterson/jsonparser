@@ -15,7 +15,11 @@ public class JsonUndefined : IJsonValue {
         return (other is JsonUndefined);
     }
 
-    public string ToString() {
+    public override string ToString() {
+        return "";
+    }
+
+    public string ToJson() {
         return "undefined";
     }
 

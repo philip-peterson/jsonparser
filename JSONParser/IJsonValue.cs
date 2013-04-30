@@ -7,10 +7,13 @@ public interface IJsonValue
         get;
         set;
     }
-    IJsonValue this[int i] {
-        get;
-        set;
-    }
+	string ToString();
+	string ToJson();
+	//string ToRepr();
+    //IJsonValue this[int i] {
+    //    get;
+    //    set;
+    //}
     object Value { 
         get;
     }

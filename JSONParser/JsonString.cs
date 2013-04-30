@@ -1,3 +1,5 @@
+using System.Text;
+
 public class JsonString : IJsonValue { 
     private string val;
 
@@ -31,8 +33,38 @@ public class JsonString : IJsonValue {
         set { }
     }
 
-    public string ToString() {
+    public override string ToString() {
         return val;
+    }
+
+    public string ToJson() {
+		StringBuilder sb = new StringBuilder();
+		sb.Append('"');
+		foreach (char c in val) {
+			if (c.Equals('\\')) {
+				sb.Append("\\\\");
+			}
+			else if (c.Equals('\b')) {
+				sb.Append("\\b");
+			}
+			else if (c.Equals('\f')) {
+				sb.Append("\\f");
+			}
+			else if (c.Equals('\n')) {
+				sb.Append("\\n");
+			}
+			else if (c.Equals('\r')) {
+				sb.Append("\\r");
+			}
+			else if (c.Equals('\t')) {
+				sb.Append("\\t");
+			}
+			else {
+				sb.Append(c);
+			}
+		}
+		sb.Append('"');
+		return sb.ToString();
     }
 
     public bool Equals(IJsonValue other) {

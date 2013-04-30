@@ -17,7 +17,11 @@ public class JsonNull: IJsonValue {
         }
     }
 
-    public string ToString() {
+    public override string ToString() {
+        return "";
+    }
+
+    public string ToJson() {
         return "null";
     }
     

@@ -1,8 +1,8 @@
 using System;
+using System.Text;
 using System.Collections.Generic;
 
 public class JsonArray : IJsonValue { 
-    private string val;
     private List<IJsonValue> list;
 
     public JsonArray() {
@@ -15,14 +15,37 @@ public class JsonArray : IJsonValue {
 
     public object Value {
         get {
-            return val;
+            return list.ToArray();
         }
     }
 
-    public string ToString() {
-        return "[Array object]"; // TODO
+    public override string ToString() {
+		StringBuilder sb = new StringBuilder();
+		bool first = true;
+		foreach (IJsonValue item in list) {
+			if (!first) {
+				sb.Append(",");
+			}
+			first = false;
+			sb.Append(item.ToString());
+		}
+		return sb.ToString();
     }
 
+    public string ToJson() {
+		StringBuilder sb = new StringBuilder();
+		sb.Append("[");
+		bool first = true;
+		foreach (IJsonValue item in list) {
+			if (!first) {
+				sb.Append(",");
+			}
+			first = false;
+			sb.Append(item.ToJson());
+		}
+		sb.Append("]");
+		return sb.ToString();
+    }
 
     public IJsonValue this[int i] {
         get {

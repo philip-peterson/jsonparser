@@ -21,8 +21,12 @@ public class JsonNumber : IJsonValue {
         }
     }
 
-    public string ToString() {
+    public override string ToString() {
         return val.ToString();
+    }
+
+    public string ToJson() {
+        return ToString();
     }
 
     public object Value {
